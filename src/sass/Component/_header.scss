@@ -1,0 +1,56 @@
+.c-header__pc {
+  @include media(xl) {
+  position: fixed;
+  top: 0;
+  background-color: $header_bg_gray;
+  width: 100%;
+  height: 60px;
+  z-index: 9000;
+  display: flex;
+  justify-content: space-between;
+  }
+}
+
+.c-header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: $header_bg_gray;
+  width: 100%;
+  z-index: 9000;
+
+  .open & {
+    background-color: transparent;
+  }
+
+  @include media(xl) {
+    display: block;
+    position: static;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    z-index: 0;
+  }
+}
+
+.c-header__logo {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(calc(-50% + 3px));
+
+  @include media(xl) {
+    position: static;
+    transform: none;
+  }
+}
+
+.st0 {
+  fill: #3aca95;
+  transition: fill 0.3s ease-in-out;
+
+  .open & {
+    fill: #ffffff;
+  }
+}

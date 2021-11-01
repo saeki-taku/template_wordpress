@@ -1,0 +1,102 @@
+.p-home-info {
+  padding: 40px 0;
+  background-color: $base_green_light;
+}
+
+.p-home-info__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  @include media(lg) {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.googlemap {
+  position: relative;
+  padding-bottom: 75%; /* 表示するパディング領域の縦横比（4：3） */
+  height: 0;
+  overflow: hidden;
+  margin-bottom: $mg_bottom_md;
+  @include media(lg) {
+    width: 50%;
+    padding-bottom: 40%;
+    margin-bottom: $mg_bottom_lg;
+  }
+}
+.googlemap iframe {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  filter: hue-rotate(150deg);
+  @include media(lg) {
+    left: 0;
+  }
+}
+
+.p-home-info__text-box {
+  padding: 0 20px;
+  @include media(lg) {
+    padding: 0;
+    width: 48%;
+  }
+}
+
+.p-home-info__btn-list {
+  padding: 0 20px;
+}
+
+.p-home-info__address {
+  margin-bottom: $mg_bottom_sm;
+}
+
+.p-home-info__address-num,
+.p-home-info__address-careful {
+  display: block;
+  @include font-size-rem(12);
+}
+
+.p-home-info__train,
+.p-home-info__car {
+  display: inline-block;
+  border-bottom: 2px solid $base-green;
+  padding: 0 8px 0 2px;
+  @include font-size-rem(14);
+}
+
+.p-home-info__train-time {
+  margin-bottom: $mg_bottom_sm;
+}
+
+.p-home-info__car-careful {
+  margin-bottom: $mg_bottom_sm;
+}
+
+.p-home-info__car-careful-sub {
+  display: block;
+  @include font-size-rem(12);
+}
+
+.p-home-info__toilet {
+  margin-bottom: $mg_bottom_sm;
+  @include font-size-rem(12);
+}
+
+.p-home-info__tel {
+  margin-bottom: $mg_bottom_sm;
+  & th {
+    font-weight: normal;
+    padding-right: 8px;
+  }
+}
+
+.p-home-info__pay {
+  margin-bottom: $mg_bottom_md;
+}
+
+.p-home-info__logo-box {
+  text-align: center;
+}

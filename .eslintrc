@@ -1,0 +1,35 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "rules": {
+        "no-new": 0,
+        "no-undef": 0,
+        "no-plusplus": 0,
+        "comma-dangle": 0,
+        "no-unused-vars": 0,
+        "no-restricted-syntax": 0,
+        "no-use-before-define": 0,
+        "object-curly-newline": 0,
+        "class-methods-use-this": 0,
+        "lines-between-class-members": 0,
+        "eqeqeq": 1,
+        "prefer-const": 1,
+        "prefer-destructuring": 1,
+        "max-len": ["error", { "code": 150 }],
+        "max-classes-per-file": ["error", 2],
+        "no-underscore-dangle": [
+            2, {
+                "allowAfterThis": true
+                }
+            ],
+            "func-names": 0
+    },
+    "globals": {
+        "$": false
+    },
+    "env": {
+        "es6": true,
+        "jquery": true,
+        "browser": true,
+    }
+}

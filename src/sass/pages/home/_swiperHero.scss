@@ -1,0 +1,71 @@
+.p-home-swiper-hero {
+  padding-top: 62px;
+
+  @include media(xl) {
+    padding-top: 55px;
+  }
+}
+
+.p-home-hero__container {
+  &.swiper-container {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.swiper-frame {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1000;
+  vertical-align: top;
+  object-fit: cover;
+  transform: scaleY(1.01) translateY(-1px);
+}
+
+.p-home-hero__wrap {
+  &.swiper-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.p-home-hero__slide {
+  &.swiper-slide {
+    overflow: hidden;
+  }
+}
+
+.p-home-hero__slide-image {
+  // frameとheaderの境目を無くすためのサイズを小さく
+  width: calc(100% - 3px);
+  height: auto;
+  margin: 1px auto 0;
+  vertical-align: top;
+}
+
+.swiper-slide-prev,
+.swiper-slide-active,
+.swiper-slide-duplicate-active {
+  & .p-home-hero__slide-image {
+    @include animation($name: zoom, $duration: 4s, $fill-mode: forwards);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.p-home-swiper_space {
+  height: 20px;
+  background-color: $base_white_light;
+}

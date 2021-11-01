@@ -1,0 +1,13 @@
+# vendor
+micromodal.js
+swiper.min.js
+scroll_polyfill.js
+anime.js
+lazysizes.js
+pace.js
+
+
+# main.js
+
+swiperMenu.js
+menuLayout.js

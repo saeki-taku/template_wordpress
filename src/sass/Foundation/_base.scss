@@ -1,0 +1,41 @@
+// font-sizeやcolorなどを共通化部品に使用
+@import '_color';
+@import '_mixin';
+@import '_breakpoints';
+
+* {
+  font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝', 'Yu Mincho', '游明朝体', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+
+body {
+  background-color: $base_white_light;
+}
+
+h2 {
+  @include font-size-rem(24);
+  @include media(md) {
+    @include font-size-rem(30);
+  }
+}
+
+h3 {
+  @include font-size-rem(20);
+  @include media(md) {
+    @include font-size-rem(24);
+  }
+}
+
+p {
+  @include font-size-rem(16);
+  line-height: 1.5;
+  letter-spacing: 1.2px;
+  color: $base_text_black;
+  @include media(md) {
+    @include font-size-rem(18);
+    letter-spacing: 1.5px;
+  }
+}
+
+a {
+  color: $base_text_black;
+}

@@ -1,0 +1,63 @@
+/*---------------------------------------------------
+ブレークポイント
+----------------------------------------------------*/
+@import './breakpoints';
+
+@mixin media($arg-breakpoint: md) {
+  @media #{map-get($breakpoints, $arg-breakpoint)} {
+    @content;
+  }
+}
+
+/*---------------------------------------------------
+フォントサイズ
+----------------------------------------------------*/
+// remバージョン
+@mixin font-size-rem($size) {
+  font-size: ($size / 16) + rem;
+}
+// vwバージョン
+@function get_vw($size, $viewport: 375){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+@mixin font-size-vw($font_size: 10){
+  font-size: get_vw($font_size);
+}
+
+/*---------------------------------------------------
+フォント種類
+----------------------------------------------------*/
+@mixin font-family-title {
+  font-family: fertigo-script, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/*---------------------------------------------------
+アニメーション テンプレート
+----------------------------------------------------*/
+@mixin animation(
+  $name,
+  $duration: 1s,
+  $timing-function: ease,
+  $delay: 0s,
+  $iteration-count: 1,
+  $direction: normal,
+  $fill-mode: forwards
+) {
+  animation: {
+    name: $name;
+    duration: $duration;
+    timing-function: $timing-function;
+    delay: $delay;
+    iteration-count: $iteration-count;
+    direction: $direction;
+    fill-mode: $fill-mode;
+  }
+}
+
+

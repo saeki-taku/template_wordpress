@@ -1,0 +1,51 @@
+#mask-line {
+  stroke-dasharray: 4500px;
+  animation: h-written 2s ease;
+  stroke: rgb(255, 255, 255);
+}
+
+@keyframes h-written {
+  0% {
+    stroke-dashoffset: 4500px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+#base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mask: url(#mask-ani);
+}
+
+// Loading後のlogoShaveとメイン画面の処理
+
+
+// 制作完了まで以下をコメントアウト
+
+.c-wrapper{
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  &.is-loaded {
+    opacity: 1;
+  }
+}
+
+.c-logo-shaved {
+  width: 80%;
+  position: fixed;
+  z-index: 9999999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity .3s ease;
+  &.is-loaded {
+    opacity: 0;
+  }
+  &.is-loaded-after {
+    display: none;
+  }
+}

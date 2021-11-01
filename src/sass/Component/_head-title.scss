@@ -1,0 +1,39 @@
+.c-head-title {
+  text-align: center;
+  margin-bottom: $mg_bottom_md;
+  @include media(md) {
+    margin-bottom: $mg_bottom_lg;
+  }
+}
+
+.c-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  @include font-family-title;
+
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    left: -38px;
+  }
+
+  &::after {
+    right: -38px;
+  }
+}
+
+.c-subTitle {
+  display: block;
+}

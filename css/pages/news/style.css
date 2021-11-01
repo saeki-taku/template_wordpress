@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/*---------------------------------------------------
+ブレークポイント
+----------------------------------------------------*/
+/*---------------------------------------------------
+フォントサイズ
+----------------------------------------------------*/
+/*---------------------------------------------------
+フォント種類
+----------------------------------------------------*/
+/*---------------------------------------------------
+アニメーション テンプレート
+----------------------------------------------------*/
+.p-news {
+  padding: 100px 0 40px; }
+  @media (min-width: 1000px) {
+    .p-news {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 40px; } }
+
+.p-news__head-photo {
+  width: 100%;
+  height: auto; }
+
+.p-news__container {
+  padding: 40px 20px; }
+  @media (min-width: 1000px) {
+    .p-news__container {
+      padding: 40px 0 80px; } }
+
+.p-news__item {
+  margin-bottom: 30px; }
+
+.p-news__date {
+  display: block;
+  text-align: right;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #54545460; }
+
+.p-news__thumbnail {
+  width: 100%;
+  height: auto; }
+  @media (min-width: 1000px) {
+    .p-news__thumbnail {
+      max-width: 500px; } }
+
+/*# sourceMappingURL=style.css.map */

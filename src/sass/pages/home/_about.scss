@@ -1,0 +1,244 @@
+.p-home-about {
+  padding: $pd_sp;
+  background-image: url('../../../images/back_01.png');
+  background-position: 30% 40%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include media(md) {
+    background-position: 30% 25%;
+    background-size: 60%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  @include media(lg) {
+    background-position: 30% 50%;
+    padding: 40px 0 140px;
+  }
+}
+
+// ==========================================================================
+// CLOVER_CONCEPT
+// ==========================================================================
+
+.p-home-about__concept {
+  margin-bottom: $mg_bottom_lg;
+
+  @include media(md) {
+    margin-bottom: 120px;
+  }
+}
+
+.p-home-about__concept-title {
+  text-align: center;
+  margin-bottom: $mg_bottom_sm;
+  display: block;
+  overflow: hidden;
+  letter-spacing: 4px;
+
+  & span {
+    display: block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.4s 0.3s cubic-bezier(0.17, 0.51, 0.57, 0.92), opacity 0.8s ease;
+  }
+
+  &.inview {
+    & span {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.p-home-about__concept-text {
+  line-height: 1.5;
+  @include media(md) {
+    max-width: 880px;
+    margin: 0 auto;
+    line-height: 2;
+  }
+}
+
+// ==========================================================================
+// CLOVER_FEATURE
+// ==========================================================================
+
+.p-home-about__item {
+  padding-bottom: 45%;
+  @include media(lg) {
+    padding-bottom: 25%;
+  }
+}
+
+.p-home-about__item-title {
+  position: relative;
+  margin-bottom: $mg_bottom_xs;
+  display: inline-block;
+  font-weight: bold;
+
+  @include media(lg) {
+    @include font-size-rem(20);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $base_green;
+    border-radius: 2px;
+  }
+
+  &.inview {
+    &::after {
+      opacity: 1;
+      @include animation($name: kf-slide-cover-title, $duration: 0.9s, $timing-function: cubic-bezier(0, 0.71, 0.43, 0.64));
+    }
+  }
+}
+
+@keyframes kf-slide-cover-title {
+  0% {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  50% {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  50.1% {
+    transform-origin: right;
+    transform: scaleX(1);
+  }
+  100% {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+}
+
+.p-home-about__item-box {
+  position: relative;
+}
+
+.p-home-about__item-image {
+  // border: 1px solid $base_green;
+  border-bottom: 1px solid $base_green;
+  border-right: 1px solid $base_green;
+  padding: 3px;
+  position: absolute;
+  top: 80%;
+  right: 0;
+  width: 60%;
+
+  @include media(md) {
+    max-width: 450px;
+  }
+
+  &.opposite-image {
+    position: static;
+    border-top: 1px solid $base_green;
+    border-left: 1px solid $base_green;
+    border-bottom: none;
+    border-right: none;
+  }
+}
+
+.p-home-about__item-text {
+  border-top: 1px solid $base_green;
+  border-left: 1px solid $base_green;
+  position: relative;
+  left: -3px;
+  width: 70%;
+  background-color: $about_text_bg_gray;
+  background-color: #ffffff98;
+  border-radius: 2px;
+  z-index: 100;
+  @include font-size-rem(14);
+
+  @include media(md) {
+    max-width: 500px;
+  }
+
+  @include media(lg) {
+    background-color: transparent;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 65%; /* 高さを幅のXX%に固定 */
+  }
+
+  @include media(xs) {
+    &::before {
+      padding-top: 60%; /* 高さを幅のXX%に固定 */
+    }
+  }
+
+  &.opposite-text {
+    border-bottom: 1px solid $base_green;
+    border-right: 1px solid $base_green;
+    border-top: none;
+    border-left: none;
+    position: absolute;
+    top: 80%;
+    right: 0;
+    left: auto;
+    z-index: 100;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $base_green;
+    opacity: 0;
+  }
+
+  &.inview {
+    &::after {
+      opacity: 1;
+      @include animation($name: kf-slide-cover-text, $duration: 1.4s, $timing-function: cubic-bezier(0, 0.71, 0.43, 0.64));
+    }
+  }
+}
+
+@keyframes kf-slide-cover-text {
+  0% {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  50% {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  50.1% {
+    transform-origin: right;
+    transform: scaleX(1);
+  }
+  100% {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+}
+
+.p-home-about__item-textInner {
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  bottom: 0;
+  right: 0;
+  letter-spacing: 1.5px;
+  @include media(md) {
+    @include font-size-rem(18);
+    letter-spacing: 2px;
+    line-height: 2;
+  }
+}

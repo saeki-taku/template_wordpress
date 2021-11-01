@@ -1,0 +1,62 @@
+.c-sidebar {
+  display: none;
+  @include media(xl) {
+    display: block;
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translate(100px, -50%);
+    z-index: 8000;
+    opacity: 0.1;
+    transition: transform 0.5s ease-in-out;
+
+    &.inview {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
+
+  @include media(xxl) {
+    right: 40px;
+  }
+}
+
+.c-sidebar__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-sidebar__item {
+  &:first-of-type {
+    margin-bottom: 20px;
+  }
+}
+
+.c-sidebar__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $base_green;
+  border-radius: 24px;
+  padding: 20px 10px;
+  min-height: 200px;
+  width: 50px;
+  letter-spacing: 2px;
+  text-align: center;
+
+  @include media(xxl) {
+    padding: 30px 20px;
+  }
+
+  &:hover,
+  &:focus {
+    border: 3px solid $base_green;
+    opacity: 0.6;
+    font-weight: bold;
+  }
+}
+
+.c-sidebar__text {
+  margin-top: 5px;
+  writing-mode: vertical-lr;
+}

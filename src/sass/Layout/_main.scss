@@ -1,0 +1,7 @@
+.l-main {
+  @include media(md) {
+    padding-top: 40px;
+    height: auto;
+    width: auto;
+  }
+}

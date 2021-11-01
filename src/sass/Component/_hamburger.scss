@@ -1,0 +1,225 @@
+.c-hamburger {
+  display: inline-block;
+  background-color: transparent;
+  position: relative;
+  width: 40px;
+  height: 42px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+  @include media(xl) {
+    display: none;
+  }
+}
+
+.c-hamburger {
+  &:hover,
+  &:focus {
+    @include media(lg) {
+      opacity: 0.6;
+      box-shadow: 0 0 5px 5px $base_green_light;
+    }
+  }
+}
+
+.c-hamburger__line {
+  background-color: $base_black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  transition: inherit;
+
+  &::before,
+  &::after {
+    background-color: $base_black;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    transition: inherit;
+  }
+
+  &::before {
+    top: 10px;
+  }
+
+  &::after {
+    top: 20px;
+  }
+}
+
+.c-hamburger[aria-expanded='true'] .c-hamburger__line {
+  top: 0;
+  left: 0;
+  transform: translateY(15px) rotate(-45deg);
+  background-color: $base_white;
+
+  &::before,
+  &::after {
+    top: 0;
+  }
+
+  &::before {
+    transform: rotate(-90deg);
+    background-color: $base_white;
+  }
+
+  &::after {
+    transform: rotate(-270deg);
+    left: 3px;
+    width: 39px;
+    background-color: $base_white;
+  }
+}
+
+.c-visuallyHidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.c-hamburger__text {
+  display: block;
+  position: absolute;
+  top: 28px;
+  letter-spacing: 2px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  transition: all 0.3s ease-in-out;
+
+  &.close {
+    display: none;
+  }
+
+  .c-hamburger[aria-expanded='true'] & {
+    color: $base_white;
+
+    &.open {
+      display: none;
+    }
+
+    &.close {
+      display: block;
+    }
+  }
+}
+// =========================================================
+// hamburger_contents
+// =========================================================
+
+.c-hamburger__contents {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  background-color: $base-green;
+  border-bottom-right-radius: 100%;
+  overflow-y: scroll;
+  transition: 0.4s;
+  z-index: 8000;
+
+  &.is-open {
+    padding: 90px 0 120px;
+    width: 100%;
+    height: 100vh;
+    max-width: auto;
+    border-bottom-right-radius: 0;
+    overflow-y: scroll;
+  }
+
+  @include media(xl) {
+    position: static;
+    width: auto;
+    background-color: transparent;
+    border-bottom-right-radius: 0;
+    overflow-y: visible;
+    transition: none;
+    z-index: 0;
+  }
+}
+
+.c-hamburger__inner {
+  opacity: 0;
+  @include animation($name: kf-drawer-inner_none, $duration: 0.1s, $fill-mode: both);
+
+  .is-open & {
+    @include animation($name: kf-drawer-inner_open, $duration: 0.1s, $delay: 0.4s, $fill-mode: both);
+  }
+
+  @include media(xl) {
+    opacity: 1;
+  }
+}
+
+@keyframes kf-drawer-inner_close {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes kf-drawer-inner_open {
+  100% {
+    opacity: 1;
+    background-color: $base-green;
+  }
+}
+
+.c-hamburger-sns__list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  @include media(xl) {
+    display: none;
+  }
+}
+
+.c-hamburger-sns__item {
+  &:not(:last-of-type) {
+    margin-right: 20px;
+  }
+}
+
+.c-hamburger-sns__link {
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.c-hamburger-info {
+  text-align: center;
+
+  @include media(xl) {
+    display: none;
+  }
+}
+
+.c-hamburger-info__table {
+  margin: 0 auto 5px;
+
+  & th {
+    padding-right: 10px;
+    font-weight: normal;
+  }
+}
+
+.c-hamburger-info__text {
+  &:not(:last-of-type) {
+    margin-bottom: 5px;
+  }
+}
